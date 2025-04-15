@@ -4,11 +4,10 @@ import os
 import json
 
 class ImageViewer:
-    def __init__(self, root, image_folder):
+    def __init__(self, root):
         self.root = root
-        self.image_folder = image_folder
         
-        with open('src\\packageInfo.json', 'r', encoding='utf-8') as f:
+        with open('packageInfo.json', 'r', encoding='utf-8') as f:
             packageInfo = json.load(f)
         
         self.rating = [f for f in packageInfo]
@@ -48,7 +47,7 @@ class ImageViewer:
             widget.destroy()
             
         # Load and display current image
-        image_path = os.path.join(self.image_folder, self.images[self.current_index])
+        image_path = self.images[self.current_index]
         image = Image.open(image_path)
         
         # Resize image if it's too large
@@ -88,7 +87,7 @@ class ImageViewer:
         self.show_current_image()
     
     def saveData(self):
-        with open('src\\exportData.json', 'w', encoding='utf-8') as f:
+        with open('exportData.json', 'w', encoding='utf-8') as f:
             json.dump(self.rating, f)
     
     def miscImage(self):
@@ -108,7 +107,7 @@ def main():
     root.title("Website Rater")
     
     # Replace 'your_images_folder' with your actual folder path
-    viewer = ImageViewer(root, 'src')
+    viewer = ImageViewer(root)
     
     # Start the application
     root.mainloop()
