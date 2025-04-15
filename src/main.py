@@ -26,10 +26,13 @@ class ImageViewer:
         button_frame.pack(pady=10)
         
         next_button = tk.Button(button_frame, text="bad", 
-                            command=self.goodImage)
+                            command=self.badImage)
         next_button.pack(side=tk.LEFT, padx=5)
         next_button = tk.Button(button_frame, text="good", 
-                            command=self.badImage)
+                            command=self.goodImage)
+        next_button.pack(side=tk.LEFT, padx=5)
+        next_button = tk.Button(button_frame, text="misc", 
+                            command=self.miscImage)
         next_button.pack(side=tk.LEFT, padx=5)
         
         # Frame for image
@@ -59,13 +62,6 @@ class ImageViewer:
         label = tk.Label(self.image_frame, image=photo)
         label.image = photo  # Keep a reference!
         label.pack()
-    
-    def show_next(self):
-        if len(self.images) <= 1:
-            return
-            
-        self.current_index = (self.current_index + 1) % len(self.images)
-        self.show_current_image()
         
     def goodImage(self):
         if len(self.images) <= 1:
@@ -74,6 +70,7 @@ class ImageViewer:
         self.current_index = (self.current_index + 1) % len(self.images)
         print(self.current_index)
         if self.current_index == 0:
+            self.saveData()
             print(self.rating)
             quit()
         self.show_current_image()
@@ -85,6 +82,7 @@ class ImageViewer:
         self.current_index = (self.current_index + 1) % len(self.images)
         print(self.current_index)
         if self.current_index == 0:
+            self.saveData()
             print(self.rating)
             quit()
         self.show_current_image()
@@ -92,7 +90,18 @@ class ImageViewer:
     def saveData(self):
         with open('src\\exportData.json', 'w', encoding='utf-8') as f:
             json.dump(self.rating, f)
-
+    
+    def miscImage(self):
+        if len(self.images) <= 1:
+            return
+        self.rating[self.current_index]['good']='misc'
+        self.current_index = (self.current_index + 1) % len(self.images)
+        print(self.current_index)
+        if self.current_index == 0:
+            self.saveData()
+            print(self.rating)
+            quit()
+        self.show_current_image()
 def main():
     # Create main window
     root = tk.Tk()
