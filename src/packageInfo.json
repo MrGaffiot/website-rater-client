@@ -2,11 +2,11 @@
     {
         "url": "https://amtes.cz/",
         "isDone": false,
-        "imagePath": "imageDownloader/webImages/screenshot_amtes.png"
+        "imagePath": "screenshot_amtes.png"
     },
     {
         "url": "https://auta-ferove.cz",
         "isDone": false,
-        "imagePath": "imageDownloader/webImages/screenshot_auta-ferove.png"
+        "imagePath": "screenshot_auta-ferove.png"
     }
 ]
