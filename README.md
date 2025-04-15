@@ -20,6 +20,7 @@ pyinstaller main.py
 2. stáhni package.zip z Discordu (!generate <číslo>, když tak !help)
 3. vŠechny soubory z package.zip dej do stejný složky jako exe soubor
 4. odpracuj si co sis navařil (když se obrázek přestane měnit tak je to hotový)
+    - ### good=moc dobrý na to abychom udělali lepší bad=měli bychom kontaktovat misc=není to jejich stránka, rozbitý obrázek etc. *NENÍ TO NEVÍM!!!*
 5. vezmi nově vytvoření soubor exportData.json a pošli ho botovy (nahraj ho, a v stejný zprávě dej !download, když tak !help)
 ![alt text](image-2.png)
 6. ### *smaž všechny soubory krom main.exe*
