@@ -10,7 +10,7 @@ pip install -U pyinstaller
 3. jdi do src
 4. běž
 ```bat
-pyinstaller main.py
+pyinstaller -F main.py
 ```
 
 ## Jak používat
